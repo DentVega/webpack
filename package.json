@@ -11,7 +11,8 @@
   ],
   "author": "Brian Dennis Vega Hidalgo",
   "license": "MIT",
-  "dependencies": {
-    "webpack": "^4.41.6"
+  "dependencies": {},
+  "devDependencies": {
+    "webpack": "4.41.6"
   }
 }
