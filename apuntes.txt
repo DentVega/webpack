@@ -1,0 +1,6 @@
+- Configurando un nuevo proyecto de Javacript
+Iniciar el proyecto con 
+    npm init
+Installar webpack
+    npm install webpack --save
+    
