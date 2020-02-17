@@ -200,3 +200,26 @@ Trabajando con Javascript moderno
 
 npm install --save-dev --save-exact @babel/plugin-transform-runtime
 npm install --save --save-exact @babel/runtime
+
+configuramos .babelrc
+
+{
+  "plugins": [
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "regenerator": true
+      }
+    ]
+  ],
+  "presets": ["@babel/preset-env"]
+}
+
+=======================================================================
+Soporte de JSX (React)
+    npm install --save-dev @babel/preset-react --save-exact
+
+    npm install --save --save-exact react react-dom
+
+
+=======================================================================

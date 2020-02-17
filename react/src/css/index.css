@@ -1,0 +1,11 @@
+body {
+  background: lightblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-size: 40px;
+  font-family: Arial;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+}
