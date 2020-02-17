@@ -122,3 +122,78 @@ Paso 2: para que la pagina se recargue automaticamente instalamos webpack-server
 
 Paso 3: configuramos el ultimo scrip para que en vez de llamar a webpack llame a webpack-dev-server que es un CLI
 ahora no es necesarios poner -w por que webpack-dev-server se encarga de correrlo
+
+- Configuración del devServer en webpack.config
+Para configurar el webpack-dev-server puedes agregar un objeto llamado devServer dentro de tu webpack.
+    module.exports = {
+    //...
+    devServer: {
+     // webpack-dev-server configuration
+    }
+    };
+En el devServer podemos configurar cosas como:
+    hot: Activa el HotModuleReplacementPlugin que muestra los cambios sin actualizar la página
+    port: Al crear un servidor de prueba con webpack-dev-server éste tomará por defecto el puerto 8080, acá podrás cambiar el puerto.
+    open: Abrirá el navegador al iniciar el servidor
+    allowedHosts: Dominios que permitirá el servidor utilizar
+    Etc…
+- Configuraciones del devServer
+HotModuleReplacementPlugin
+Hot Module Replacement (HMR) es un plugin de Webpack que permite intercambiar, agregar o eliminar módulos en tiempo de ejecución, sin una recarga completa de la página.
+.
+Para activarlo lo tienes que importar desde webpack, agregarlo como plugin y en el devServer agregar la propiedad hot
+
+    const webpack = require('webpack');
+    module.exports = {
+      //...
+      devServer: {
+        hot: true
+      }
+      plugins: [
+        new webpack.HotModuleReplacementPlugin()
+      ]
+    };
+HMR puede acelerar significativamente el desarrollo de las siguientes formas:
+
+Conservando el estado de la aplicación que se pierde durante una recarga.
+Ahorre un valioso tiempo de desarrollo actualizando solo lo que ha cambiado.
+Actualice al instante el navegador cuando se realicen modificaciones a CSS / JS en el código fuente, que es casi comparable a cambiar los estilos directamente en las herramientas de desarrollo del navegador.
+
+=======================================================================
+Soporte de Javacript Moderno 
+
+Javascript es un lenguaje moderno en evolución, siempre agregando nuevas funciones. El problema es que al ser interpretado en el navegador, 
+no tenemos control sobre que versión de Javascript soportan y por lo tanto que funciones.
+Para poder usar Javascript moderno y tener una buena Developer Experience sin afectar la User Experience, existe Babel. 
+Babel transpila nuestro código moderno de Javascript a una una versión que todos los navegadores pueden entender.
+El papel de babel será el de transpilar (convertir y adaptar código) escrito en estándares modernos (normalmente superior a ecmaScript 2015) a estándares que soporten la mayoría de los navegadores, de esta manera el desarrollador se preocupa por porgramar de manera cómoda y webpack con babel lo convierten en lo que sea mejor para los navegadores.
+.
+Para hacer uso de Babel en webpack, como éste tiene un loader (babel-loader), tenemos que instalar @babel/core (que tiene la funcionalidad básica de babel) 
+y babel-loader e instanciar el loader dentro de nuestras rules de la siguiente manera:
+
+module.exports = {
+//
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        use: 'babel-loader', // Intercepta los archivos de js y transpila en versiones más antiguas que entiendan la mayoría de los navegadores
+        exclude: /node_modules/,
+      },
+  },
+};
+
+Babel requerirá de configuración, ésta puede ser declarada dentro del webpack, 
+pero se recomienda hacerlo dentro de un archivo llamado .babelrc que leerá babel a la hora de ser configurado por webpack.
+
+Paso1: Instalar @babel/core babel-loader @babel/preset-env 
+    npm install --save-dev --save-exact @babel/core babel-loader @babel/preset-env
+
+Recursos Externos:
+    - https://github.com/babel/babel/tree/master/packages/babel-core
+    - https://github.com/babel/babel-loader
+    - https://github.com/babel/babel/tree/master/packages/babel-preset-env
+    - https://babeljs.io/docs/en/babel-plugin-transform-runtime
+
+=======================================================================
+Trabajando con Javascript moderno
