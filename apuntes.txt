@@ -99,3 +99,9 @@ Paso 1: instalamos css-loader
     npm install --save-dev --save-exact style-loader
 
 =======================================================================
+Introduccion al uso de plugins
+Los plugins sirven para extender las capacidades de webpack y dar mas poder a los loaders.
+
+instalar el plugins
+    npm install mini-css-extract-plugin html-webpack-plugin --save-dev --save-exact
+     npm install mini-css-extract-plugin @0.7.0
