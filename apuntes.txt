@@ -326,5 +326,38 @@ Paso 4: configurara postcSS:
     npm install --save-dev --save-exact postcss-nested
 
 Paso 5: crear el archivo postcss.config.css y configurarlo
-    
+
+=======================================================================
+Evitar código duplicado
+https://webpack.js.org/plugins/split-chunks-plugin/
+
+Es útil dividir nuestro código en diversos archivos y a veces enteros proyectos, 
+pero no queremos cargar nuestra aplicación de más multiplicando el peso de alguna dependencia al utilizarla en diferentes 
+partes de la aplicación, para eso utilizamos el módulo de optimización con splitChunks en webpack.
+.
+
+module.exports = {
+  entry:{
+    home: path.resolve(__dirname, './src/js/index.js'),
+    contact: path.resolve(__dirname, './src/js/contact.js'),
+  },
+  devServer:{...},
+  output:{...},
+  module:{...},
+  plugins: [...],
+  optimization:{
+    splitChunks:{ // permite dividir el peso en diferentes archivos para evitar duplicación
+      chunks:'all',
+      minSize:0,
+      name:'commons',
+    }
+  },
+}
+
+La propiedad chunk de splitChunks puede recibir cualquiera de estos tres parámetros:
+
+‘initial’: indica a webpack que optimice solo los módulos que son importados de forma no dinámica.
+async: webpack optimizará solo aquellos que son cargados de forma no-dinámica.
+all: indica a webpack que optimice, lo mejor que pueda, los módulos sin importar si son cargados de forma dinámica o no-dinámica.
+
 =======================================================================
