@@ -223,3 +223,39 @@ Soporte de JSX (React)
 
 
 =======================================================================
+Trabajando con React
+
+=======================================================================
+Soporte imagenes, fuentes y videos
+Para soportar la importación de archivos binarios en nuestro código Javascript cómo lo son: fuentes, imágenes y videos, 
+podemos usar url-loader.
+
+url-loader transforma archivos a un cadena de texto base64 para que carguen dentro de nuestros archivos Javascript y 
+así ahorrarnos un request al servidor por cada archivo transformado.
+
+Debemos tomar en cuenta que sólo nos conviene convertir archivos pequeños, 
+ya que archivos muy grandes podrían hacer nuestro archivo bundle muy pesado. 
+Es por esto que la opción limit del url-loader sirve para asignar el peso máximo que un archivo puede tener para ser transformado en base64.
+
+No olvides instalar file-loader junto con url-loader ya que cuando se sobrepasa el limite establecido en la opción limit y 
+el archivo no pueda ser transformado a base64, url-loader hará uso del file-loader para insertar un nombre y ruta de archivo en el lugar correspondiente.
+
+
+Paso 1: Instalamos url-loader
+    npm install --save-dev --save-exact url-loader
+    https://github.com/webpack-contrib/url-loader
+
+    npm install --save-dev --save-exact file-loader
+
+    añadimos nuevas rules en webpack.config.js
+
+    {
+        test: /\.(jpg|png|gif|woff|eot|ttf|svg|mp4|webm)$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 90000
+          }
+        }
+      }
+=======================================================================
