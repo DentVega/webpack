@@ -4,7 +4,7 @@ const path = require('path'); //Nos ayuda a crear mejores path's
 //npx webpack --entry ./index.js --output ./bundle.js --mode development
 module.exports = {
   entry: './index.js', //input
-  mode: 'development', // o production
+  // mode: 'development', // o production
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'

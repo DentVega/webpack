@@ -68,3 +68,14 @@ Output: Es la ruta de salida donde va a generar nuestro bundle con todos nuestro
 - Paso 1: Creamos el archivo webpack.config.js
 - Paso 2: Escribimos la configuracion de webpack dentro del archivo
 - Paso 3: En package añadimos el script "build": "webpack" para correr el proyecto con npm run
+
+=======================================================================
+Cargando configuraciones por defecto y personalizadas
+
+Por medio del uso de la bandera --config podemos especificar un archivo de configuración externo con el 
+nombre que queramos en lugar del nombre por defecto webpack.config.js.
+
+creamos nuevos script y usamos la bandera --config para definir el archivo deconfiguracion que desamos utilizar
+=======================================================================
+
+Multiples puntos de entrada
