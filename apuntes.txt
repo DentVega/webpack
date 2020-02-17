@@ -76,6 +76,11 @@ Por medio del uso de la bandera --config podemos especificar un archivo de confi
 nombre que queramos en lugar del nombre por defecto webpack.config.js.
 
 creamos nuevos script y usamos la bandera --config para definir el archivo deconfiguracion que desamos utilizar
-=======================================================================
 
+=======================================================================
 Multiples puntos de entrada
+
+Paso 1: Creamos una carpeta src/ks donde guardamos nustro archivo page.js de desarrollo.
+Y una carpeta dist/js donde guardaremos los page.js de produccion
+
+Paso 2: Ahora podemos crear un script en package.json
