@@ -259,3 +259,72 @@ Paso 1: Instalamos url-loader
         }
       }
 =======================================================================
+Estilos con preprocesadores
+Es una práctica común usar preprocesadores de CSS como: Sass, Less, Stylus y hasta PostCSS. 
+Webpack permite integrar estos preprocesadores en su configuración a través de loaders, 
+sólo ten cuidado con las peerDependencies que son dependencias que el loader espera estén instaladas previamente, 
+como el caso de stylus para stylus-loader.
+
+Paso 1: instalamos las dependecias necesarias
+    npm install sass-loader stylus-loader less-loader postcss-loader --save-dev --save-exact
+
+    https://github.com/postcss/postcss-loader
+    https://github.com/shama/stylus-loader
+    https://github.com/webpack-contrib/less-loader
+    https://github.com/webpack-contrib/sass-loader
+
+Paso 2: instalamos las dependecias necesarias para cada preprocesadores
+    npm install stylus less node-sass --save-dev -save-exact
+
+Añadir los loaders al webpack config: 
+
+module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        use: 'babel-loader',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1
+            }
+          },
+          'postcss-loader'
+        ]
+      },
+      {
+        test: /\.less$/,
+        use: ['style-loader', 'css-loader', 'less-loader']
+      },
+      {
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
+      },
+      {
+        test: /\.styl$/,
+        use: ['style-loader', 'css-loader', 'stylus-loader']
+      },
+      {
+        test: /\.(jpg|png|gif|woff|eot|ttf|svg|mp4|webm)$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 90000
+          }
+        }
+      }
+    ]
+  }
+
+Paso 4: configurara postcSS:
+    npm install --save-dev --save-exact postcss-nested
+
+Paso 5: crear el archivo postcss.config.css y configurarlo
+    
+=======================================================================
