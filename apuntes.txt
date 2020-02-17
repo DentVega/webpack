@@ -105,3 +105,20 @@ Los plugins sirven para extender las capacidades de webpack y dar mas poder a lo
 instalar el plugins
     npm install mini-css-extract-plugin html-webpack-plugin --save-dev --save-exact
      npm install mini-css-extract-plugin @0.7.0
+
+=======================================================================
+
+Servidor de desarrollo
+
+Paso1: Creamos el script:
+    "build:dev": "webpack --config ./webpack-dev-server/webpack.config.js --watch"
+    
+    watch sirve para crear un listener que escuchara los cambios en los archivos y ejecutara el comando nuevamente
+    Ejemplo: Para añadir el w al comando usamos -- antes del w
+        npm run build:dev -- -w
+
+Paso 2: para que la pagina se recargue automaticamente instalamos webpack-server
+    npm install -D --save-exact webpack-dev-server
+
+Paso 3: configuramos el ultimo scrip para que en vez de llamar a webpack llame a webpack-dev-server que es un CLI
+ahora no es necesarios poner -w por que webpack-dev-server se encarga de correrlo
