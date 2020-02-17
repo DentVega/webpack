@@ -197,3 +197,6 @@ Recursos Externos:
 
 =======================================================================
 Trabajando con Javascript moderno
+
+npm install --save-dev --save-exact @babel/plugin-transform-runtime
+npm install --save --save-exact @babel/runtime
