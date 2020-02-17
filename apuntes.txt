@@ -3,5 +3,51 @@ Iniciar el proyecto con
     npm init
 Installar webpack
     npm install webpack --save
+    npm install webpack --save --save-exact
 
-Cambiar la versio de webpack
+    webpack: "4.32.2"
+Cambiar webpack a dependencia de desarrollo con el comando 
+    npm install webpack --save-dev --save-exact
+=======================================================================
+- Creando nuestro primer bundle con webpack
+
+Vamos a instalar otra dependencia llamada webpack-cli, la 
+API que expone webpack en forma de CLI (Command Line Interface) que nos va a permitir interactuar y 
+configurar Webpack desde la terminal.
+El comando webpack tiene una bandera llamada --mode que nos permite cambiar entre los modos 
+producción y desarrollo. Recuerda que por defecto nos pone en modo producción si no la especificamos.
+
+
+    Creamos dos archivos
+        - index.js que tendra un console.log
+        - index.html que tendra como script a index.js
+    Instalamos webpack-cli con el comando  
+        - npm install webpack-cli --save-dev --save-exact
+
+        npm install webpack-cli -D -E
+        -D significa -save-dev es para instalar las dependecias como desarrollador
+        -E significa save-exact es para instalar la misma version con que fue desarollado el proyecto
+
+    Observaciones
+        desde webpack 4 requerimos webpack-cli
+
+    Invocamoss a webpack con el comando 
+        webpack
+
+    Con npx llamamos a las dependencia solo en la direccion actual
+        - npx webpack -v
+
+    - tomar el archivo de javacript y pasarlo a webpack poniendo un input al archivo
+        npx webpack --entry ./index.js --output ./bundle.js
+
+        ouput  es el nombre con el que el archivo se va a llamar cuando webpack me lo entregue
+        bundle es el lugar donde esta
+
+    - si no seteamos el modo development nos pondra en modo produccion automaticamente para cambiar esto añadimos dos comandos al anterior
+        npx webpack --entry ./index.js --output ./bundle.js --mode development
+        npx webpack --entry ./index.js --output ./bundle.js --mode production
+
+    - npm o npx?
+        npm se usa para instalar dependecias pero no las ejecuta
+        npx es para ejecutar dependecias ya instaladas
+=======================================================================
