@@ -51,3 +51,20 @@ producción y desarrollo. Recuerda que por defecto nos pone en modo producción 
         npm se usa para instalar dependecias pero no las ejecuta
         npx es para ejecutar dependecias ya instaladas
 =======================================================================
+Iniciando un webpack.config
+
+Al ir creciendo nuestra configuración de Webpack iremos agregando cada vez más banderas a nuestros 
+comandos y terminará como una línea gigante en la terminal. ¿Cómo hacemos que esa línea sea muy pequeñita, 
+personalizable y escalable? Por medio de un archivo llamado por defecto webpack.config.js.
+
+Este archivo permite importar módulos usando el formato commonJS y recibe por lo menos dos configuraciones básicas, 
+un entry y un output.
+
+Entry Point: Es la ruta del archivo principal de nuestra aplicación JS a ser procesado por Webpack. 
+Se pueden tener varios Entry Points.
+Output: Es la ruta de salida donde va a generar nuestro bundle con todos nuestros archivos especificados como Entry Points empaquetados en uno sólo.
+
+
+- Paso 1: Creamos el archivo webpack.config.js
+- Paso 2: Escribimos la configuracion de webpack dentro del archivo
+- Paso 3: En package añadimos el script "build": "webpack" para correr el proyecto con npm run
