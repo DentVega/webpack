@@ -84,3 +84,18 @@ Paso 1: Creamos una carpeta src/ks donde guardamos nustro archivo page.js de des
 Y una carpeta dist/js donde guardaremos los page.js de produccion
 
 Paso 2: Ahora podemos crear un script en package.json
+
+=======================================================================
+Manejo de assets con Loaders
+
+Los Loaders son la funcionalidad que nos da Webpack para interpretar tipos de archivos no soportados de forma nativa por Javascript.
+
+style-loader sirve para inyectar un tag style (el CSS) al DOM de nuestro HTML, mientras que css-loader sólo sirve para interpretar archivos CSS.
+
+
+Paso 1: instalamos css-loader   
+    - npm install --save-dev --save-exact css-loader   
+
+    npm install --save-dev --save-exact style-loader
+
+=======================================================================
