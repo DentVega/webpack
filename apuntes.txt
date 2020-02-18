@@ -438,4 +438,6 @@ Esta clase es dificil, practica, genera nuevas configuraciones.
 
 
 =======================================================================
+Dynamic imports
 
+    npm install --save-dev --save-exact @babel/plugin-syntax-dynamic-import
